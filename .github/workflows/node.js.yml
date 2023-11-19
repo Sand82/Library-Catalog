@@ -24,6 +24,5 @@ jobs:
       - name: Build application
         run: npm install 
   
-      - name: Run server
-        working-directory: server
+      - name: Run server       
         run: node server.js
