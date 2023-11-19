@@ -18,6 +18,10 @@ jobs:
       with:
         node-version: 18.x
         cache: 'npm'
-        
+
     - name: Build application
       run: npm install 
+
+    - name: Run server
+      working-directory: server
+      run: node server.js
