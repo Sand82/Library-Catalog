@@ -13,16 +13,16 @@ jobs:
     
     steps:
     - uses: actions/checkout@v3
-    # - name: Use Node.js 18.x
-    #   uses: actions/setup-node@v3
-    #   with:
-    #     node-version: 18.x
-    #     cache: 'npm'
+    - name: Use Node.js 18.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+        cache: 'npm'
 
     - name: Build application
       run: npm install 
 
     - name: Run server      
       run: |
-        cd server
-        npm start
+        cd server        
+        node server.js
