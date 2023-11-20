@@ -60,4 +60,13 @@ jobs:
       - name: Run tests
         run: npx playwright test ui.test.js &
         working-directory: tests
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Production
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.SERVICE_ID }}
+          api-key: ${{ secrets.API_TOKEN }}
     
