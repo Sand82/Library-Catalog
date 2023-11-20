@@ -21,20 +21,13 @@ jobs:
           node-version: 18.x
           cache: 'npm'
   
-      - name: Build application
+      - name: Install node_modules
         run: npm install 
-  
-      - name: Install pack
-        run: npm install --save-dev mocha
 
-      - name: Install Playwright globally
-        run: npm install -g playwright
-
-      - name: Install Playwright browsers
-        run: npx playwright install
-
-      - name: Install http-server globally
-        run: npm install -g http-server
-
-      - name: Start application
-        run : npm run start
+      - name: Start server
+        run: node server.js &
+        working-directory: server
+        
+      - name: Start app
+        run: npm run start-for-tests &
+    
